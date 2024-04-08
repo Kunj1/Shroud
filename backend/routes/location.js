@@ -1,6 +1,6 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const { getUserLocation } = require('./userUtils.js');
+import express from "express";
+import cookieParser from "cookie-parser";
+import { getUserLocation } from "./userUtils.js";
 
 const locationRoutes = express.Router();
 

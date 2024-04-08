@@ -1,9 +1,9 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const fileUpload = require('express-fileupload');
-const { execSync } = require('child_process');
-const fs = require('fs');
-const User = require('../models/User2.js');
+import express from "express";
+import cookieParser from "cookie-parser";
+import fileUpload from "express-fileupload";
+import { execSync } from "child_process";
+import fs from "fs";
+import User2 from "../models/User2.js";
 
 const faceVerifyRoutes = express.Router();
 
@@ -18,7 +18,7 @@ faceVerifyRoutes.post('/verify-face', async (req, res) => {
             return res.status(400).json({ error: 'No image uploaded' });
         }
 
-        const user = await User.findById(userId);
+        const user = await User2.findById(userId);
 
         if (!user || !user.img) {
             return res.status(404).json({ error: 'User image not found' });

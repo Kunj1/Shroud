@@ -32,4 +32,4 @@ const UserSchema = new Schema({
     }
 });
 //module.exports= mongoose.model('User',UserSchema);
-export const User2 = new model("User2", UserSchema);
+export default mongoose.model("User2", UserSchema);
