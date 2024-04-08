@@ -43,4 +43,4 @@ locationRoutes.post('/verify-location', async (req, res) => {
     }
 });
 
-module.exports = locationRoutes;
+export {locationRoutes};

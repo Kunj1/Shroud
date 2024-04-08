@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const User = require('../models/User2.js');
 
-const faceVerifyRoutes = express.faceVerifyRoutes();
+const faceVerifyRoutes = express.Router();
 
 faceVerifyRoutes.use(cookieParser());
 faceVerifyRoutes.use(fileUpload());
@@ -44,4 +44,4 @@ faceVerifyRoutes.post('/verify-face', async (req, res) => {
     }
 });
 
-module.exports = faceVerifyRoutes;
+export {faceVerifyRoutes};

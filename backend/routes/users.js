@@ -1,12 +1,12 @@
 import express from "express";
-const User = require("../models/User2.js");
+import User2 from "../models/User2";
 
 const userRoutes = express.Router();
 
 userRoutes.get("/:username", async (req, res, next) => {
     const username = req.params.username;
     try {
-        const user = await User.findOne({ username });
+        const user = await User2.findOne({ username });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
@@ -17,4 +17,4 @@ userRoutes.get("/:username", async (req, res, next) => {
     }
 });
 
-export default userRoutes;
+export {userRoutes};

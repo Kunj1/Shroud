@@ -41,4 +41,4 @@ authRoutes.post("/signup", async (req, res, next) => {
     }
 });
 
-module.exports= {authRoutes};
+export { authRoutes };
