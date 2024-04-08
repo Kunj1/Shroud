@@ -1,10 +1,10 @@
 import express from "express";
 import User from "../models/User2.js";
 
-const router = express.Router();
+const authRoutes = express.Router();
 
 
-router.post("/login", async (req, res, next) => {
+authRoutes.post("/login", async (req, res, next) => {
     const { username, password } = req.body;
     try {
         const user = await User.findOne({ username });
@@ -26,7 +26,7 @@ router.post("/login", async (req, res, next) => {
 });
 
 
-router.post("/signup", async (req, res, next) => {
+authRoutes.post("/signup", async (req, res, next) => {
     const { username, email, password } = req.body;
     try {
         const existingUser = await User.findOne({ $or: [{ username }, { email }] });
@@ -41,4 +41,4 @@ router.post("/signup", async (req, res, next) => {
     }
 });
 
-export default router;
+module.exports= {authRoutes};

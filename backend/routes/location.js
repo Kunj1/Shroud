@@ -2,9 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const { getUserLocation } = require('./userUtils.js');
 
-const app = express();
+const locationRoutes = express.Router();
 
-app.use(cookieParser());
+locationRoutes.use(cookieParser());
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -18,7 +18,7 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return distance;
 }
 
-app.post('/verify-location', async (req, res) => {
+locationRoutes.post('/verify-location', async (req, res) => {
     try {
         const { userId } = req.cookies;
 
@@ -43,4 +43,4 @@ app.post('/verify-location', async (req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = locationRoutes;

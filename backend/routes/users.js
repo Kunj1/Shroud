@@ -1,9 +1,9 @@
 import express from "express";
 const User = require("../models/User2.js");
 
-const router = express.Router();
+const userRoutes = express.Router();
 
-router.get("/:username", async (req, res, next) => {
+userRoutes.get("/:username", async (req, res, next) => {
     const username = req.params.username;
     try {
         const user = await User.findOne({ username });
@@ -17,4 +17,4 @@ router.get("/:username", async (req, res, next) => {
     }
 });
 
-export default router;
+export default userRoutes;

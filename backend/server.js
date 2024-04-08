@@ -2,10 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/users.js";
-import locationRoutes from "./routes/location.js";
-import faceVerifyRoutes from "./routes/faceVerify.js";
+import {authRoutes} from "./routes/auth.js";
+import {userRoutes} from "./routes/users.js";
+import {locationRoutes} from "./routes/location.js";
+import {faceVerifyRoutes} from "./routes/faceVerify.js";
 
 const app = express();
 dotenv.config();

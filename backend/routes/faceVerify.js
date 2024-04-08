@@ -5,12 +5,12 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const User = require('../models/User2.js');
 
-const router = express.Router();
+const faceVerifyRoutes = express.faceVerifyRoutes();
 
-router.use(cookieParser());
-router.use(fileUpload());
+faceVerifyRoutes.use(cookieParser());
+faceVerifyRoutes.use(fileUpload());
 
-router.post('/verify-face', async (req, res) => {
+faceVerifyRoutes.post('/verify-face', async (req, res) => {
     try {
         const { userId } = req.cookies;
 
@@ -44,4 +44,4 @@ router.post('/verify-face', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = faceVerifyRoutes;
